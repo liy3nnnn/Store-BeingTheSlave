@@ -216,7 +216,158 @@ input {
 /* LIGHT MODE */
 body.light {
     background: #f4f6fb;
-    color: black;
+    color: #111827;
+}
+
+body.light::before {
+    background: #a855f7;
+    opacity: 0.1;
+}
+
+body.light .hero h1, body.light .faq h2 {
+    background: linear-gradient(135deg, #4c1d95, #7e22ce);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.light .btn {
+    color: #4c1d95;
+    border-color: rgba(107, 33, 168, 0.4);
+}
+
+body.light .btn.glow {
+    color: white;
+}
+
+body.light .btn.outline {
+    color: #6b21a8;
+    border-color: rgba(107, 33, 168, 0.4);
+}
+
+body.light .card {
+    background: rgba(255,255,255,0.8);
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+body.light .card:hover {
+    box-shadow: 0 20px 60px rgba(139,92,246,0.2), 0 0 40px rgba(139,92,246,0.1);
+}
+
+body.light .compare table {
+    background: rgba(255,255,255,0.8);
+}
+
+body.light .compare td, body.light .compare th {
+    border-color: #e5e7eb;
+}
+
+body.light .faq-item {
+    background: rgba(255,255,255,0.8);
+    border-color: rgba(139, 92, 246, 0.2);
+}
+
+body.light .faq-question {
+    color: #111827;
+}
+
+body.light .faq-answer {
+    color: #4b5563;
+}
+
+body.light .modal-box, body.light .loading, body.light .success {
+    background: rgba(255,255,255,0.95);
+    border-color: rgba(0,0,0,0.1);
+    color: #111827;
+}
+
+body.light input {
+    background: #f3f4f6;
+    color: #111827;
+    border-color: #d1d5db;
+}
+
+body.light .premium-banner {
+    background: rgba(139,92,246,0.1);
+    color: #6b21a8;
+    border-color: rgba(139,92,246,0.2);
+}
+
+/* ===============================
+   🔔 LIVE NOTIFICATIONS
+================================ */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.toast {
+    background: rgba(20,20,30,0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards, fadeOut 0.5s ease 4.5s forwards;
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+body.light .toast {
+    background: rgba(255,255,255,0.9);
+    color: #111;
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.toast img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.toast span {
+    color: #a855f7;
+    font-weight: 600;
+}
+
+@keyframes slideInLeft {
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; transform: translateY(10px); }
+}
+
+/* ===============================
+   ✍️ TYPING EFFECT
+================================ */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: #d8b4fe;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+body.light .typing-cursor {
+    background-color: #6b21a8;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 /* ===================================================
