@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Being A Slave Premium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -20,8 +23,11 @@
 </header>
 
 <section class="hero">
-    <h1>💎 Being A Slave Premium</h1>
-    <p>Elite access • Private zones • Exclusive perks</p>
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-content">
+        <h1>💎 Being A Slave Premium</h1>
+        <p>Elite access • Private zones • Exclusive perks</p>
+    </div>
 </section>
 
 <!-- NEW PREMIUM BANNER 
@@ -82,6 +88,23 @@
         <tr><td>Priority</td><td>❌</td><td>✔</td><td>✔✔</td></tr>
         <tr><td>Custom Role</td><td>✔</td><td>✔</td><td>✔</td></tr>
     </table>
+</section>
+
+<!-- FAQ SECTION (NEW FEATURE) -->
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">How long does it take for my role? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Once the payment is verified, the role is assigned automatically within 5–10 minutes.</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Can I upgrade my tier later? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Yes, you can upgrade your package at any time by paying the difference.</p></div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Do you offer refunds? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>No, all premium purchases are final and non-refundable to maintain exclusivity.</p></div>
+    </div>
 </section>
 
 <!-- CTA -->
