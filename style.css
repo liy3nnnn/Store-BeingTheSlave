@@ -484,3 +484,86 @@ html {
     font-size: 13px;
     opacity: 0.7;
 }
+
+/* ===============================
+   📱 MOBILE RESPONSIVE FIX
+================================ */
+
+@media (max-width: 768px){
+
+    /* NAVBAR */
+    .navbar{
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .navbar div{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* HERO */
+    .hero{
+        padding: 50px 15px;
+    }
+
+    .hero h1{
+        font-size: 28px;
+    }
+
+    .hero p{
+        font-size: 14px;
+    }
+
+    /* ROLES → STACK */
+    .roles{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    /* CARD FULL WIDTH */
+    .card{
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* BUTTON FIX */
+    .btn{
+        width: 100%;
+        text-align: center;
+    }
+
+    /* MODAL */
+    .modal-box{
+        width: 90%;
+        max-width: 360px;
+        padding: 20px;
+    }
+
+    /* INPUT */
+    input{
+        font-size: 14px;
+    }
+
+    /* COMPARE TABLE → SCROLL */
+    .compare{
+        overflow-x: auto;
+    }
+
+    .compare table{
+        width: 600px;
+    }
+
+    /* CTA */
+    .cta{
+        padding: 40px 15px;
+    }
+
+    .cta h2{
+        font-size: 24px;
+    }
+}
