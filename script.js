@@ -131,3 +131,78 @@ function toggleView(){
 function toggleTheme(){
     document.body.classList.toggle("light");
 }
+
+/* FAQ TOGGLE FEATURE */
+function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    
+    if (item.classList.contains('open')) {
+        item.classList.remove('open');
+        answer.style.maxHeight = null;
+    } else {
+        // Close others
+        document.querySelectorAll('.faq-item.open').forEach(openItem => {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq-answer').style.maxHeight = null;
+        });
+        
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 30 + "px"; // 30 for padding
+    }
+}
+
+/* PREMIUM CANVAS PARTICLES */
+function initParticles() {
+    const canvas = document.getElementById("heroCanvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    let width, height;
+    let particles = [];
+
+    function resize() {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+    }
+    
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.r = Math.random() * 1.5 + 0.5;
+            this.dx = (Math.random() - 0.5) * 0.5;
+            this.dy = (Math.random() - 0.5) * 0.5;
+            this.alpha = Math.random() * 0.5 + 0.1;
+        }
+        update() {
+            this.x += this.dx;
+            this.y += this.dy;
+            if (this.x < 0 || this.x > width) this.dx = -this.dx;
+            if (this.y < 0 || this.y > height) this.dy = -this.dy;
+            this.draw();
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(216, 180, 254, ${this.alpha})`;
+            ctx.fill();
+        }
+    }
+
+    for (let i = 0; i < 80; i++) {
+        particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => p.update());
+        requestAnimationFrame(animate);
+    }
+    animate();
+}
+
+document.addEventListener("DOMContentLoaded", initParticles);
