@@ -188,7 +188,8 @@ function initParticles() {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(216, 180, 254, ${this.alpha})`;
+            const isLight = document.body.classList.contains("light");
+            ctx.fillStyle = isLight ? `rgba(107, 33, 168, ${this.alpha})` : `rgba(216, 180, 254, ${this.alpha})`;
             ctx.fill();
         }
     }
@@ -206,3 +207,82 @@ function initParticles() {
 }
 
 document.addEventListener("DOMContentLoaded", initParticles);
+
+/* ===============================
+   🔔 LIVE NOTIFICATIONS
+================================ */
+const names = ["Shadow", "Ghost", "Viper", "Ninja", "Reaper", "Zeus", "Nova", "Echo", "Falcon", "Titan", "Axel", "Blaze", "Raven"];
+const roles = ["Sovereign 👑", "Prestige ⚡", "Prime 💎"];
+
+function showToast() {
+    const container = document.getElementById("toastContainer");
+    if (!container) return;
+
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    const randomRole = roles[Math.floor(Math.random() * roles.length)];
+    
+    toast.innerHTML = `
+        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${randomName}" alt="avatar">
+        <div><span>${randomName}</span> just purchased ${randomRole}</div>
+    `;
+    
+    container.appendChild(toast);
+
+    // Remove toast after 5s
+    setTimeout(() => {
+        if (toast.parentElement) {
+            toast.remove();
+        }
+    }, 5000);
+}
+
+// Show a notification periodically
+setInterval(showToast, Math.random() * 15000 + 10000);
+setTimeout(showToast, 2000); // Show first one soon
+
+/* ===============================
+   ✍️ TYPING EFFECT
+================================ */
+const phrases = [
+    "Elite access • Private zones • Exclusive perks",
+    "Level up your Discord experience today",
+    "Join the elite and unlock hidden channels"
+];
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typeTextElement = null;
+
+function typeEffect() {
+    if (!typeTextElement) {
+        typeTextElement = document.getElementById("typingText");
+        if (!typeTextElement) return;
+    }
+
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (isDeleting) {
+        typeTextElement.innerHTML = currentPhrase.substring(0, charIndex - 1) + '<span class="typing-cursor"></span>';
+        charIndex--;
+    } else {
+        typeTextElement.innerHTML = currentPhrase.substring(0, charIndex + 1) + '<span class="typing-cursor"></span>';
+        charIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 40 : 80;
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+        typeSpeed = 2500; // Pause at end
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typeSpeed = 500; // Pause before typing next
+    }
+
+    setTimeout(typeEffect, typeSpeed);
+}
+document.addEventListener("DOMContentLoaded", typeEffect);
