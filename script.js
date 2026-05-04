@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", initParticles);
 /* ===============================
    🔔 LIVE NOTIFICATIONS
 ================================ */
-const names = ["Shadow", "Ghost", "Viper", "Ninja", "Reaper", "Zeus", "Nova", "Echo", "Falcon", "Titan", "Axel", "Blaze", "Raven"];
+const names = ["oWen", "Zebron", "Billy", "Scott", "Iva", "Bongsoon", "Professsor", "Hadi", "Popper"];
 const roles = ["Sovereign 👑", "Prestige ⚡", "Prime 💎"];
 
 function showToast() {
