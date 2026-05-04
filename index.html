@@ -1,183 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Being A Slave Premium</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Being A Slave Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="navbar">
-    <div class="logo">💎 Being A Slave Premium</div>
+    <header class="navbar">
+        <div class="logo">💎 Being A Slave Premium</div>
 
-    <div style="display:flex; gap:10px;">
-        <button class="btn small" onclick="toggleTheme()">🌙</button>
-        <button class="btn small" onclick="toggleView()">Compare</button>
-        <a href="https://discord.gg/YOUR_LINK" target="_blank" class="btn glow small">Join Discord</a>
-    </div>
-</header>
+        <div style="display:flex; gap:10px;">
+            <button class="btn small" onclick="toggleTheme()">🌙</button>
+            <button class="btn small" onclick="toggleView()">Compare</button>
+            <a href="https://discord.gg/YOUR_LINK" target="_blank" class="btn glow small">Join Discord</a>
+        </div>
+    </header>
 
-<section class="hero">
-    <canvas id="heroCanvas"></canvas>
-    <div class="hero-content">
-        <h1>💎 Being A Slave Premium</h1>
-        <p>Elite access • Private zones • Exclusive perks</p>
-    </div>
-</section>
+    <section class="hero">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-content">
+            <h1>💎 Being A Slave Premium</h1>
+            <p id="typingText"></p>
+        </div>
+    </section>
 
-<!-- NEW PREMIUM BANNER 
+    <!-- NEW PREMIUM BANNER 
 <section class="premium-banner">
     <p>🔥 100+ users upgraded today</p>
 </section> -->
 
-<section class="roles">
+    <section class="roles">
 
-    <div class="card">
-        <span class="badge top">TOP</span>
+        <div class="card">
+            <span class="badge top">TOP</span>
 
-        <h2>👑 Sovereign</h2>
-        <ul>
-            <li>Private Channels</li>
-            <li>Custom Role Color</li>
-            <li>Priority Support</li>
-        </ul>
-        <div class="price">₹99</div>
-        <button class="btn glow" onclick="openModal('Sovereign', 99)">Buy</button>
-    </div>
-
-    <div class="card">
-        <span class="badge popular">POPULAR</span>
-
-        <h2>⚡ Prestige</h2>
-        <ul>
-            <li>Voice Access</li>
-            <li>Custom Color</li>
-        </ul>
-        <div class="price">₹69</div>
-        <button class="btn glow" onclick="openModal('Prestige', 69)">Buy</button>
-    </div>
-
-    <div class="card">
-        <span class="badge value">BEST</span>
-
-        <h2>💎 Prime</h2>
-        <ul>
-            <li>Basic Role</li>
-            <li>Channel Access</li>
-        </ul>
-        <div class="price">₹49</div>
-        <button class="btn glow" onclick="openModal('Prime', 49)">Buy</button>
-    </div>
-
-</section>
-
-<section id="compareView" class="compare hidden">
-    <table>
-        <tr>
-            <th>Feature</th>
-            <th>Prime</th>
-            <th>Prestige</th>
-            <th>Sovereign</th>
-        </tr>
-        <tr><td>VC Access</td><td>✔</td><td>✔</td><td>✔</td></tr>
-        <tr><td>Priority</td><td>❌</td><td>✔</td><td>✔✔</td></tr>
-        <tr><td>Custom Role</td><td>✔</td><td>✔</td><td>✔</td></tr>
-    </table>
-</section>
-
-<!-- FAQ SECTION (NEW FEATURE) -->
-<section class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">How long does it take for my role? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p>Once the payment is verified, the role is assigned automatically within 5–10 minutes.</p></div>
-    </div>
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Can I upgrade my tier later? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p>Yes, you can upgrade your package at any time by paying the difference.</p></div>
-    </div>
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Do you offer refunds? <span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p>No, all premium purchases are final and non-refundable to maintain exclusivity.</p></div>
-    </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-    <h2>🚀 Ready to Upgrade?</h2>
-    <p>Join Discord & unlock premium now</p>
-    <a href="https://discord.gg/GGhN5ByAFm" class="btn glow">Join Server</a>
-</section>
-
-<!-- MODAL (UNCHANGED LOGIC, ONLY NAMES FLOW UPDATED) -->
-<div id="checkoutModal" class="modal">
-    <div class="modal-box">
-
-        <div class="progress-bar">
-            <div id="progressFill"></div>
+            <h2>👑 Sovereign</h2>
+            <ul>
+                <li>Private Channels</li>
+                <li>Custom Role Color</li>
+                <li>Priority Support</li>
+            </ul>
+            <div class="price">₹99</div>
+            <button class="btn glow" onclick="openModal('Sovereign', 99)">Buy</button>
         </div>
 
-        <div class="modal-header">
-            <h2 id="packageTitle"></h2>
-            <span onclick="closeModal()">×</span>
+        <div class="card">
+            <span class="badge popular">POPULAR</span>
+
+            <h2>⚡ Prestige</h2>
+            <ul>
+                <li>Voice Access</li>
+                <li>Custom Color</li>
+            </ul>
+            <div class="price">₹69</div>
+            <button class="btn glow" onclick="openModal('Prestige', 69)">Buy</button>
         </div>
 
-        <p class="price" id="packagePrice"></p>
+        <div class="card">
+            <span class="badge value">BEST</span>
 
-        <div class="step active" id="step1">
-            <h3>Terms</h3>
-            <div class="terms">No refunds. Follow rules.</div>
-            <label><input type="checkbox" id="agreeCheck"> I agree</label>
-            <button class="btn glow full" onclick="nextStep(1)">Continue</button>
+            <h2>💎 Prime</h2>
+            <ul>
+                <li>Basic Role</li>
+                <li>Channel Access</li>
+            </ul>
+            <div class="price">₹49</div>
+            <button class="btn glow" onclick="openModal('Prime', 49)">Buy</button>
         </div>
 
-        <div class="step" id="step2">
-            <h3>Purchase Type</h3>
-            <button class="btn glow full" onclick="nextStep(2)">Myself</button>
-            <button class="btn outline full" onclick="nextStep(2)">Gift</button>
-        </div>
+    </section>
 
-        <div class="step" id="step3">
-            <h3>Payment</h3>
-            <button class="btn glow full" onclick="nextStep(3)">UPI / QR</button>
-        </div>
+    <section id="compareView" class="compare hidden">
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Prime</th>
+                <th>Prestige</th>
+                <th>Sovereign</th>
+            </tr>
+            <tr>
+                <td>VC Access</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+            </tr>
+            <tr>
+                <td>Priority</td>
+                <td>❌</td>
+                <td>✔</td>
+                <td>✔✔</td>
+            </tr>
+            <tr>
+                <td>Custom Role</td>
+                <td>✔</td>
+                <td>✔</td>
+                <td>✔</td>
+            </tr>
+        </table>
+    </section>
 
-        <div class="step" id="step4">
-            <h3>Complete</h3>
-            <img src="assets/qr.png" class="qr">
-            <input type="text" id="discordId" placeholder="Discord ID">
-            <input type="file" id="paymentFile">
-            <button class="btn glow full" onclick="submitOrder()">Submit</button>
+    <!-- FAQ SECTION (NEW FEATURE) -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How long does it take for my role? <span
+                    class="faq-icon">+</span></button>
+            <div class="faq-answer">
+                <p>Once the payment is verified, the role is assigned automatically within 5–10 minutes.</p>
+            </div>
         </div>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Can I upgrade my tier later? <span
+                    class="faq-icon">+</span></button>
+            <div class="faq-answer">
+                <p>Yes, you can upgrade your package at any time by paying the difference.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Do you offer refunds? <span
+                    class="faq-icon">+</span></button>
+            <div class="faq-answer">
+                <p>No, all premium purchases are final and non-refundable to maintain exclusivity.</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- CTA -->
+    <section class="cta">
+        <h2>🚀 Ready to Upgrade?</h2>
+        <p>Join Discord & unlock premium now</p>
+        <a href="https://discord.gg/GGhN5ByAFm" class="btn glow">Join Server</a>
+    </section>
+
+    <!-- MODAL (UNCHANGED LOGIC, ONLY NAMES FLOW UPDATED) -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-box">
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+            <div class="modal-header">
+                <h2 id="packageTitle"></h2>
+                <span onclick="closeModal()">×</span>
+            </div>
+
+            <p class="price" id="packagePrice"></p>
+
+            <div class="step active" id="step1">
+                <h3>Terms</h3>
+                <div class="terms">No refunds. Follow rules.</div>
+                <label><input type="checkbox" id="agreeCheck"> I agree</label>
+                <button class="btn glow full" onclick="nextStep(1)">Continue</button>
+            </div>
+
+            <div class="step" id="step2">
+                <h3>Purchase Type</h3>
+                <button class="btn glow full" onclick="nextStep(2)">Myself</button>
+                <button class="btn outline full" onclick="nextStep(2)">Gift</button>
+            </div>
+
+            <div class="step" id="step3">
+                <h3>Payment</h3>
+                <button class="btn glow full" onclick="nextStep(3)">UPI / QR</button>
+            </div>
+
+            <div class="step" id="step4">
+                <h3>Complete</h3>
+                <img src="assets/qr.png" class="qr">
+                <input type="text" id="discordId" placeholder="Discord ID">
+                <input type="file" id="paymentFile">
+                <button class="btn glow full" onclick="submitOrder()">Submit</button>
+            </div>
+
+        </div>
     </div>
-</div>
 
-<div id="successBox" class="success hidden">
-    <h2>✅ Payment Submitted</h2>
-    <p>Admin will verify in 5–10 mins</p>
-    <button class="btn glow" onclick="closeSuccess()">Close</button>
-</div>
+    <div id="successBox" class="success hidden">
+        <h2>✅ Payment Submitted</h2>
+        <p>Admin will verify in 5–10 mins</p>
+        <button class="btn glow" onclick="closeSuccess()">Close</button>
+    </div>
 
-<div id="loadingBox" class="loading hidden">
-    <div class="loader"></div>
-    <h3>Processing Payment...</h3>
-    <p>Please wait, verifying transaction 💳</p>
-</div>
+    <div id="loadingBox" class="loading hidden">
+        <div class="loader"></div>
+        <h3>Processing Payment...</h3>
+        <p>Please wait, verifying transaction 💳</p>
+    </div>
 
-<script src="script.js" defer></script>
+    <!-- NEW FEATURE: TOAST CONTAINER -->
+    <div id="toastContainer" class="toast-container"></div>
 
-<script>
-window.openModal = openModal;
-window.closeModal = closeModal;
-window.nextStep = nextStep;
-window.submitOrder = submitOrder;
-</script>
+    <script src="script.js" defer></script>
+
+    <script>
+        window.openModal = openModal;
+        window.closeModal = closeModal;
+        window.nextStep = nextStep;
+        window.submitOrder = submitOrder;
+    </script>
 
 </body>
+
 </html>
